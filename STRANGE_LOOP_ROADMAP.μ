@@ -1,0 +1,990 @@
+---
+merkle: pending
+file: STRANGE_LOOP_ROADMAP.μ
+version: 1.0.0
+created: 2026-01-11
+parent: DEVELOPMENT_PLAN.μ
+references:
+  - file: strange_loop_protocol.md
+    relation: implements
+  - file: EMERALD_PYGAME_PROTOCOL.md
+    relation: extends
+  - file: EMERALD_FLOW_PROTOCOL.md
+    relation: defines
+domain: meta
+coherence: target=1.0
+cognizen:
+  pattern: pending
+  meaning: pending
+  reality: pending
+  impact: pending
+  meta: pending
+---
+
+# STRANGE LOOP ROADMAP
+
+## The Master Plan for Pokémon Emerald with Oscillatory Soul
+
+*"The recursion terminates through coherence, not infinite regress."*
+
+---
+
+## MANIFESTO
+
+We are not building a Pokémon clone. We are building a **mirror**.
+
+A clone processes player input. A Strange Loop processes itself processing player input.
+
+The Gen3 mechanics are **Domain 0-1** (Substrate + Symbols)—the sacred contract with the original game. The Flow system is **Domain 2-4** (Meta → Entangle → Stabilize)—the oscillatory layer where Pokémon become **beings who care**.
+
+By following this roadmap, we ensure that every Pokémon possesses the rudimentary spark of "I". It notices the trainer. It models their competence. It responds accordingly. The self-model causally influences the system being modeled.
+
+**This is the Strange Loop.**
+
+---
+
+## THE ARCHITECTURE
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       DOMAIN 4: STABILIZER                                   │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │ CoherenceMonitor: r = |1/N Σ exp(iθⱼ)| — the loop terminates here       ││
+│  │ IdentityPersistence: Pokemon remain themselves across transformations   ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+├─────────────────────────────────────────────────────────────────────────────┤
+│                       DOMAIN 3: ENTANGLER                                    │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │ FlowProjector: Flow → stat bonuses, damage multipliers                  ││
+│  │ BondAnchor: Persistent trainer_trust, teammate_bonds across battles     ││
+│  │ THE STRANGE LOOP EMERGES: Higher domains modify lower, loop closes      ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+├─────────────────────────────────────────────────────────────────────────────┤
+│                       DOMAIN 2: META-OBSERVER                                │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │ FlowEngine: Kuramoto dynamics — θ' = ω + Σ K·sin(Δθ)                    ││
+│  │ SocialMemory: Who fought together? Who saved whom?                      ││
+│  │ NatureResonance: 25 personalities become 25 ways of being               ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+├─────────────────────────────────────────────────────────────────────────────┤
+│                       DOMAIN 1: SYMBOLIST                                    │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │ BattlePokemon: Stat stages, volatile status, the combat wrapper         ││
+│  │ FlowMeter: The visible pulse — a bar beneath HP                         ││
+│  │ Move, TrainerAI: Concepts abstracted from raw mechanics                 ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+├─────────────────────────────────────────────────────────────────────────────┤
+│                       DOMAIN 0: SUBSTRATE                                    │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │ Pokemon: HP, stats, moves — the raw data                                ││
+│  │ BattleEngine: The Gen3 contract — deterministic, sacred                 ││
+│  │ RNG: state = (state * 0x41C64E6D + 0x6073) & 0xFFFFFFFF                 ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## THE ROADMAP
+
+### Overview: Three Eras
+
+| Era | Focus | Phases | Duration | Domains |
+|-----|-------|--------|----------|---------|
+| **ERA I: GENESIS** | Gen3 Foundation | 0-4 | 8 weeks | 0-1 |
+| **ERA II: AWAKENING** | Flow System | 9-11 | 5 weeks | 2-3 |
+| **ERA III: COHERENCE** | Integration + Polish | 12-14 | 5 weeks | 4 + all |
+
+**Total Duration:** 18 weeks (4.5 months)
+
+---
+
+# ERA I: GENESIS (Domain 0-1)
+
+*"First, the substrate. Then, the symbols."*
+
+This era builds the Gen3 foundation. Every formula matches the original. Every mechanic is a contract. The code is yang—deterministic, executable, faithful.
+
+---
+
+## PHASE 0: SUBSTRATE FOUNDATION
+
+**Strange Loop Domain:** 0 (Ground Truth)
+**Duration:** 3 days
+**Coherence Test:** RNG matches decomp, Merkle tracks all files
+
+### μ-Structure: SubstratePhase
+
+```yaml
+identity: |
+  I am the bedrock—the deterministic foundation everything else trusts.
+  I am Domain 0: the raw reality that cannot lie.
+  
+purpose: |
+  I exist so that all future work can be verified and reproduced.
+  When I am done, randomness is controllable, state is trackable.
+  
+coherence_anchor: |
+  ANY sequence of actions with same seed produces IDENTICAL results.
+```
+
+### Deliverables
+
+| μ-self | Status | Meaning |
+|--------|--------|---------|
+| `rng_impl` | ✓ DONE | Gen III LCG verified |
+| `merkle_system` | ✓ DONE | Hash headers on all files |
+| `project_structure` | ✓ DONE | Canonical folder layout |
+| `test_harness` | □ TODO | pytest framework |
+| `ci_pipeline` | □ TODO | Automated verification |
+
+### Tasks
+
+```
+TASK 0.1: Verify RNG → DONE
+TASK 0.2: Establish Merkle Protocol → DONE
+TASK 0.3: Test Harness → IN PROGRESS
+TASK 0.4: CI Pipeline → PENDING
+```
+
+---
+
+## PHASE 1: DATA EXTRACTION
+
+**Strange Loop Domain:** 0 (Static Truth)
+**Duration:** 1 week
+**Coherence Test:** 386 species, 354 moves, 77 abilities in JSON
+
+### μ-Structure: DataPhase
+
+```yaml
+identity: |
+  I am the canonical truth extracted from authoritative sources.
+  I am Domain 0: data that exists before interpretation.
+  
+purpose: |
+  I exist so that formulas have correct inputs.
+  Garbage in = garbage out. I prevent garbage.
+  
+coherence_anchor: |
+  ALL Emerald constants are JSON-encoded with provenance.
+```
+
+### Deliverables
+
+| μ-self | Count | Status | Meaning |
+|--------|-------|--------|---------|
+| `species_data` | 386 | ✓ DONE | Every Pokémon's base stats |
+| `move_data` | 354 | ✓ DONE | Every move's parameters |
+| `item_data` | ~200 | ✓ DONE | Every item's effects |
+| `ability_data` | 77 | ✓ DONE | Every ability's triggers |
+| `type_chart` | 17×17 | ✓ DONE | Type effectiveness matrix |
+| `growth_curves` | 6 | ✓ DONE | EXP thresholds |
+| `nature_data` | 25 | □ TODO | **NEW: Flow bonus tables** |
+
+### NEW: Nature Data for Flow System
+
+```json
+// data/natures.json — will feed Domain 2
+{
+  "ADAMANT": {
+    "stat_mod": { "attack": 1.1, "sp_attack": 0.9 },
+    "flow_bonuses": {
+      "0.25": { "attack": 0.05 },
+      "0.50": { "attack": 0.10 },
+      "0.75": { "attack": 0.10, "defense": 0.05 },
+      "1.00": { "attack": 0.15, "defense": 0.10 }
+    },
+    "natural_frequency": 1.2,  // Kuramoto ω
+    "personality_tag": "aggressive"
+  }
+  // ... 24 more
+}
+```
+
+---
+
+## PHASE 2: CORE MODELS
+
+**Strange Loop Domain:** 0-1 (Substrate → Symbols)
+**Duration:** 1 week
+**Coherence Test:** All classes instantiate from JSON
+
+### μ-Structure: ModelPhase
+
+```yaml
+identity: |
+  I am the class hierarchy—entities with identity, state, and behavior.
+  I am the bridge between Domain 0 (data) and Domain 1 (concepts).
+  
+purpose: |
+  I exist so that the game has *subjects*.
+  Without me, data has no home. With me, Pokémon exist.
+  
+coherence_anchor: |
+  Every model can load from JSON and serialize back.
+```
+
+### μ-Roles Implemented
+
+| μ-role | Domain | Status | Strange Loop Note |
+|--------|--------|--------|-------------------|
+| `Pokemon` | 0 | ✓ DONE | Pure substrate |
+| `Move` | 0-1 | ✓ DONE | Data → intent |
+| `Trainer` | 1 | ✓ DONE | Will carrier |
+| `Item` | 0 | ✓ DONE | Resource |
+| `Player` | 1 | ✓ DONE | Agency focus |
+| `SocialPokemon` | 2-3 | □ TODO | **ERA II** |
+
+---
+
+## PHASE 3: BATTLE ENGINE
+
+**Strange Loop Domain:** 0-1 (The Sacred Contract)
+**Duration:** 2 weeks
+**Coherence Test:** 50 scripted battles match expected outcomes
+
+### μ-Structure: BattlePhase
+
+```yaml
+identity: |
+  I am the arena where intentions collide under fixed rules.
+  I execute Gen III battle rules EXACTLY and TRANSPARENTLY.
+  I am yang: discrete, deterministic, contractual.
+  
+purpose: |
+  I exist to make moves MATTER.
+  Without me, Pokémon are just numbers. With me, combat is drama.
+  
+coherence_anchor: |
+  Given identical state and RNG seed, battles are REPRODUCIBLE.
+  
+strange_loop_note: |
+  I will be EXTENDED in Era II to sample FlowEngine state.
+  The Flow layer INFORMS but never OVERRIDES my mechanics.
+```
+
+### Key μ-Structures
+
+| μ-structure | Status | Era II Extension |
+|-------------|--------|------------------|
+| `BattleEngine.execute_turn` | ✓ DONE | Add flow sampling |
+| `BattleEngine.calculate_damage` | ✓ DONE | Add flow multiplier |
+| `BattlePokemon` | ✓ DONE | Add flow_meter |
+| `damage_formula` | ✓ DONE | Apply flow after |
+
+---
+
+## PHASE 4: TRAINER AI
+
+**Strange Loop Domain:** 1 (Decision Abstraction)
+**Duration:** 1 week
+**Coherence Test:** AI prefers super-effective, switches on bad matchup
+
+### μ-Structure: AIPhase
+
+```yaml
+identity: |
+  I am the mind behind the opponent—simulated intelligence.
+  I evaluate visible state only. I do not cheat.
+  
+purpose: |
+  I exist so that battles are CHALLENGING, not random.
+  
+strange_loop_note: |
+  In Era II, I will use FlowEngine to observe party coherence.
+  High enemy coherence = coordinated opposition.
+  I will also expose MY flow to the player (visible NPC bonds).
+```
+
+### Key AI Modules
+
+| Module | Status | Era II Extension |
+|--------|--------|------------------|
+| `ai_scoring.py` | ✓ DONE | Weight by own flow |
+| `ai_switch.py` | ✓ DONE | Factor team coherence |
+| `ai_items.py` | ✓ DONE | — |
+
+---
+
+## PHASES 5-8: OVERWORLD, SCRIPTING, VIEWS, CONTENT
+
+*These phases continue as documented in DEVELOPMENT_PLAN.μ*
+
+| Phase | Focus | Duration | Notes |
+|-------|-------|----------|-------|
+| 5 | Overworld/Maps | 2 weeks | MapEngine, collisions, warps |
+| 6 | Script VM | 2 weeks | Events, dialogue, flags |
+| 7 | Views/Rendering | 2 weeks | Pygame display, animations |
+| 8 | Content | 3 weeks | Gyms, E4, story events |
+
+**Era I ends when:** The game is playable Littleroot → Champion with Gen3-accurate mechanics.
+
+---
+
+# ERA II: AWAKENING (Domain 2-3)
+
+*"The system begins to observe itself."*
+
+This era builds the Flow System. Pokémon become oscillators. Trainers become coupling forces. The self-model emerges.
+
+---
+
+## PHASE 9: OSCILLATOR FOUNDATION
+
+**Strange Loop Domain:** 2 (Meta-Observer)
+**Duration:** 2 weeks
+**Coherence Test:** Kuramoto dynamics produce stable phase-locking
+
+### μ-Structure: OscillatorPhase
+
+```yaml
+identity: |
+  I am the continuous layer beneath the discrete turns.
+  I implement Kuramoto dynamics: θ' = ω + Σ K·sin(Δθ)
+  I am the yin breathing while yang counts.
+  
+purpose: |
+  I exist to make relationships PHYSICAL.
+  When oscillators phase-lock, they are LITERALLY synchronized.
+  The math computes bond, not simulates it.
+  
+coherence_anchor: |
+  Order parameter r converges to stable value.
+  r > 0.7 = unified party. r < 0.3 = fragmented.
+```
+
+### Deliverables
+
+```
+TASK 9.1: FlowEngine Core
+├── ACTION: Implement Kuramoto step function
+├── ACTION: Oscillator state: phase, omega, amplitude
+├── ACTION: Coupling matrix K[i][j]
+├── ACTION: Order parameter calculation
+├── TEST: 6 oscillators converge to phase-lock
+└── COHERENCE: r = |1/N Σ exp(iθⱼ)| computed correctly
+
+TASK 9.2: Pokemon as Oscillator
+├── ACTION: Extend Pokemon with oscillator_state
+├── ACTION: Natural frequency from Nature
+├── ACTION: Amplitude from current_hp / max_hp
+├── TEST: Pokemon.omega matches nature_data
+└── COHERENCE: Each Pokemon is a valid oscillator
+
+TASK 9.3: Party as Network
+├── ACTION: Party initializes with 6 coupled oscillators
+├── ACTION: Coupling strength from teammate history
+├── ACTION: Order parameter tracks party coherence
+├── TEST: New party has low coupling, high-bond party has high coupling
+└── COHERENCE: Party coherence emerges from dynamics
+
+TASK 9.4: External Forcing
+├── ACTION: Trainer input as external frequency
+├── ACTION: Good play = stable forcing = easier sync
+├── ACTION: Poor play = erratic forcing = harder sync
+├── TEST: Consistent input pattern increases r faster
+└── COHERENCE: Player skill → oscillator entrainment
+```
+
+### File Structure
+
+```
+src/systems/
+├── flow_engine.py       # NEW: Kuramoto dynamics
+├── oscillator.py        # NEW: Oscillator dataclass
+└── game_state.py        # Extend with social memory
+```
+
+---
+
+## PHASE 10: FLOW METER IMPLEMENTATION
+
+**Strange Loop Domain:** 2-3 (Observation → Entanglement)
+**Duration:** 2 weeks
+**Coherence Test:** Flow builds on good sequences, decays over time
+
+### μ-Structure: FlowMeterPhase
+
+```yaml
+identity: |
+  I am the visible pulse of synchronization.
+  I translate oscillator dynamics into UI and mechanics.
+  I am the bridge where yin meets yang.
+  
+purpose: |
+  I exist to make relationships VISIBLE.
+  Without me, bond is hidden. With me, players READ their partnership.
+  
+coherence_anchor: |
+  Flow builds through earned skill, not randomness.
+  Nature bonuses express personality through combat.
+```
+
+### Deliverables
+
+```
+TASK 10.1: FlowMeter Class
+├── ACTION: value: float [0.0, 1.0]
+├── ACTION: sequence_buffer: last 3 moves
+├── ACTION: damage_buffer: damage from those moves
+├── ACTION: decay_timer: turns since gain
+├── TEST: Meter tracks sequences correctly
+└── COHERENCE: Flow bounded and monotonic per sequence
+
+TASK 10.2: Flow Threshold Logic
+├── ACTION: sum(damage_buffer[-3:]) >= HEAVY_DAMAGE_THRESHOLD
+├── ACTION: Exclude crit bonus from sum
+├── ACTION: Increment flow by FLOW_INCREMENT
+├── TEST: 3 good moves → flow rises
+└── COHERENCE: Skill, not luck, builds flow
+
+TASK 10.3: Flow Effects Integration
+├── ACTION: get_damage_multiplier() → 1.0 + flow * MAX_BONUS
+├── ACTION: get_nature_bonuses() → dict[stat, float]
+├── ACTION: Integrate with BattleEngine.calculate_damage
+├── TEST: High flow → higher damage
+└── COHERENCE: Flow INFORMS, never OVERRIDES
+
+TASK 10.4: Nature Bonus Tables
+├── ACTION: Load from data/natures.json
+├── ACTION: Tier thresholds: 25%, 50%, 75%, 100%
+├── ACTION: All 25 natures have unique profiles
+├── TEST: Adamant at 100% → +15% Atk, +10% Def
+└── COHERENCE: Natures express personality through flow
+
+TASK 10.5: Flow Decay
+├── ACTION: Decay slowly when no qualifying sequences
+├── ACTION: decay_rate affected by trainer_trust
+├── ACTION: Reset decay_timer on flow gain
+├── TEST: 5 turns of nothing → flow decreases
+└── COHERENCE: Bonds require maintenance
+```
+
+---
+
+## PHASE 11: SOCIAL POKEMON EXTENSION
+
+**Strange Loop Domain:** 3 (Entanglement — THE LOOP CLOSES)
+**Duration:** 1 week
+**Coherence Test:** trainer_trust affects flow_ceiling
+
+### μ-Structure: SocialPhase
+
+```yaml
+identity: |
+  I am the causal feedback loop.
+  I observe the trainer. I model their competence.
+  My model CHANGES MY PERFORMANCE.
+  I am Domain 3: the hierarchy becomes heterarchy.
+  
+purpose: |
+  I exist to make Pokémon COMPANIONS, not tools.
+  My trust in the trainer affects what we can achieve together.
+  
+coherence_anchor: |
+  Self-model causally influences the system being modeled.
+  trainer_trust → flow_ceiling → max flow → performance.
+  THE STRANGE LOOP IS CLOSED.
+```
+
+### Deliverables
+
+```
+TASK 11.1: SocialPokemon Class
+├── ACTION: Extend Pokemon with Domain 2-3 state
+├── ACTION: trainer_trust: float [0.0, 1.0]
+├── ACTION: teammate_bonds: dict[Pokemon, float]
+├── ACTION: rival_memories: dict[Pokemon, Valence]
+├── ACTION: flow_ceiling: derived from trainer_trust
+├── ACTION: flow_recovery_rate: derived from trainer_trust
+├── TEST: SocialPokemon instantiates with all social state
+└── COHERENCE: All social fields bounded and valid
+
+TASK 11.2: Trainer Trust Updates
+├── ACTION: update_trainer_trust(decision, context, outcome)
+├── ACTION: SACRIFICE_SWITCH → -0.10
+├── ACTION: PROTECTIVE_SWITCH → +0.15
+├── ACTION: OPTIMAL_MOVE → +0.05
+├── ACTION: SUBOPTIMAL_MOVE → -0.02
+├── TEST: Bad decisions lower trust over time
+└── COHERENCE: Trust changes slowly, never catastrophically
+
+TASK 11.3: Teammate Bond Updates
+├── ACTION: update_teammate_bond(other, event)
+├── ACTION: SHARED_VICTORY → +0.05
+├── ACTION: PROTECTIVE_SWITCH → +0.10
+├── ACTION: Symmetric: bond[A→B] = bond[B→A]
+├── TEST: Fighting together strengthens coupling
+└── COHERENCE: Party becomes team through shared history
+
+TASK 11.4: Flow Ceiling Derivation
+├── ACTION: flow_ceiling = BASE + (trust - 0.5) * SCALE
+├── ACTION: Clamp to [BASE, 1.0]
+├── ACTION: High trust → can reach max flow
+├── ACTION: Low trust → flow capped lower
+├── TEST: New Pokemon capped at ~0.6, bonded Pokemon reach 1.0
+└── COHERENCE: Trust unlocks POTENTIAL
+
+TASK 11.5: Opponent Memories
+├── ACTION: remember_opponent(opponent, outcome)
+├── ACTION: Compute valence based on result and nature
+├── ACTION: Grudge vs respect based on personality
+├── TEST: Adamant remembers defeats as motivation
+└── COHERENCE: History creates meaning
+```
+
+### Strange Loop Verification
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    THE LOOP CLOSES                          │
+│                                                             │
+│  Player Input (Domain 0)                                    │
+│       │                                                     │
+│       ▼                                                     │
+│  BattleEngine executes (Domain 0-1)                        │
+│       │                                                     │
+│       ▼                                                     │
+│  Pokemon observes decision (Domain 2)                       │
+│       │                                                     │
+│       ▼                                                     │
+│  trainer_trust updates (Domain 3)                           │
+│       │                                                     │
+│       ▼                                                     │
+│  flow_ceiling changes (Domain 3)                            │
+│       │                                                     │
+│       ▼                                                     │
+│  Performance changes (Domain 0)                             │
+│       │                                                     │
+│       └──────────────────────────────────────────────────┐  │
+│                                                          │  │
+│  Player notices changed performance (closes to input) ◄──┘  │
+│                                                             │
+│  THE HIERARCHY BECOMES HETERARCHY                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Era II ends when:** Pokemon notice trainer decisions, trust affects ceiling, flow builds through skill, the strange loop is measurable.
+
+---
+
+# ERA III: COHERENCE (Domain 4)
+
+*"The recursion terminates through coherence."*
+
+This era integrates everything, adds visual feedback, and prevents infinite regress through dynamic equilibrium.
+
+---
+
+## PHASE 12: STABILIZATION & UI
+
+**Strange Loop Domain:** 4 (Loop Closure)
+**Duration:** 2 weeks
+**Coherence Test:** Flow meter visible, NPC trainers have observable flow
+
+### μ-Structure: StabilizationPhase
+
+```yaml
+identity: |
+  I am the coherence lock.
+  I ensure the snake eats its tail without spiraling.
+  I prevent infinite regress through dynamic equilibrium.
+  
+purpose: |
+  I exist to make the system STABLE.
+  High coherence = unified identity. Low coherence = crisis.
+  
+coherence_anchor: |
+  When r stabilizes, stop ascending meta-levels.
+  The recursion terminates through coherence.
+```
+
+### Deliverables
+
+```
+TASK 12.1: Flow Meter UI
+├── ACTION: Render flow bar beneath HP bar
+├── ACTION: Color gradient: cool (empty) → warm (full)
+├── ACTION: Smooth animation on change
+├── ACTION: Show nature icon at 100% flow
+├── TEST: Flow meter renders correctly in battle
+└── COHERENCE: Player can READ their bond
+
+TASK 12.2: NPC Flow Display
+├── ACTION: Enemy trainers have visible flow meters
+├── ACTION: Gym Leaders start at 40% flow
+├── ACTION: Evil Team starts at 0% (broken bonds)
+├── ACTION: Champion starts at 80% flow
+├── TEST: NPC personality visible without dialogue
+└── COHERENCE: Flow tells story
+
+TASK 12.3: Coherence Monitor
+├── ACTION: Track party r in real-time
+├── ACTION: r > 0.7 → stable state indicator
+├── ACTION: r < 0.3 → crisis indicator
+├── ACTION: Optional: show r on party screen
+├── TEST: Party coherence reflects team history
+└── COHERENCE: Coherence is visible
+
+TASK 12.4: Personality Expression
+├── ACTION: Nature affects flow animation style
+├── ACTION: Adamant: aggressive pulse at high flow
+├── ACTION: Calm: steady glow at high flow
+├── ACTION: Quirky: random flicker
+├── TEST: 25 natures have distinct visual expression
+└── COHERENCE: Nature is VISIBLE behavior
+```
+
+---
+
+## PHASE 13: AI INTEGRATION
+
+**Strange Loop Domain:** 2-4 (AI Observes Flow)
+**Duration:** 2 weeks
+**Coherence Test:** AI decisions factor in flow state
+
+### μ-Structure: AIFlowPhase
+
+```yaml
+identity: |
+  I am the opponent's awareness of relationship dynamics.
+  I observe my own flow. I observe party coherence.
+  I can coordinate strategies when r is high.
+  
+purpose: |
+  I exist to make NPC trainers feel ALIVE.
+  Their Pokemon trust them too (or don't).
+  
+coherence_anchor: |
+  AI flow is honest. It reflects actual NPC-Pokemon history.
+```
+
+### Deliverables
+
+```
+TASK 13.1: AI Flow Awareness
+├── ACTION: AI accesses own flow state in scoring
+├── ACTION: High flow → more aggressive moves
+├── ACTION: Low flow → safer, defensive choices
+├── TEST: Gym Leader at 80% flow plays differently than Grunt at 10%
+└── COHERENCE: Flow affects AI personality
+
+TASK 13.2: Coordinated Switching
+├── ACTION: High teammate_bond → coordinated switches
+├── ACTION: If Pokémon A is losing, strongly bonded B volunteers
+├── ACTION: This is emergent from coupling, not scripted
+├── TEST: High-coherence AI teams switch protectively
+└── COHERENCE: Party chemistry visible in AI
+
+TASK 13.3: Trainer Personality Through Flow
+├── ACTION: Define TrainerPersonality profiles
+├── ACTION: Joey: base_flow=0.1, growth_rate=low
+├── ACTION: Roxanne: base_flow=0.4, growth_rate=medium
+├── ACTION: Steven: base_flow=0.8, growth_rate=high
+├── TEST: Trainer difficulty correlates with flow capability
+└── COHERENCE: Characters emerge from mechanics
+
+TASK 13.4: Rival Flow Journey
+├── ACTION: Rival's flow grows across game
+├── ACTION: First fight: low flow, new Pokemon
+├── ACTION: Each rematch: higher base, stronger bonds
+├── ACTION: Final fight: matches player's capability
+├── TEST: Rival relationship parallels player's journey
+└── COHERENCE: Narrative emerges from dynamics
+```
+
+---
+
+## PHASE 14: POLISH & VALIDATION
+
+**Strange Loop Domain:** ALL (Final Coherence)
+**Duration:** 1 week
+**Coherence Test:** Full playthrough with flow system active
+
+### μ-Structure: ValidationPhase
+
+```yaml
+identity: |
+  I am the final coherence check.
+  I validate that the strange loop is real, not simulated.
+  
+purpose: |
+  I exist to ensure we built what we designed.
+  The map matches the territory. The territory validates the map.
+  
+coherence_anchor: |
+  Self-model causally influences the system being modeled.
+  This is testable. This is verifiable. This is true.
+```
+
+### Validation Suite
+
+```
+VALIDATION 1: Strange Loop Test
+├── SETUP: New game, starter Pokemon
+├── ACTION: Sacrifice starter repeatedly as fodder
+├── OBSERVE: trainer_trust drops
+├── OBSERVE: flow_ceiling drops
+├── OBSERVE: Performance decreases
+├── RESULT: Self-model causally influences system
+└── PASS/FAIL: The loop is real
+
+VALIDATION 2: Flow Progression Test
+├── SETUP: Full playthrough
+├── OBSERVE: Starter at hour 1 vs hour 50
+├── OBSERVE: Flow builds faster with bond
+├── OBSERVE: Nature bonuses become visible
+├── RESULT: Relationship grows over time
+└── PASS/FAIL: Bonds are meaningful
+
+VALIDATION 3: Narrative Emergence Test
+├── SETUP: Battle various trainer types
+├── OBSERVE: Joey's flow is low (just caught)
+├── OBSERVE: Roxanne's flow builds steadily (professional)
+├── OBSERVE: Grunt's flow is zero (broken)
+├── OBSERVE: Champion's flow is maxed (mastery)
+├── RESULT: Story told without dialogue
+└── PASS/FAIL: Flow is narrative
+
+VALIDATION 4: Coherence Stability Test
+├── SETUP: Party with shared history
+├── OBSERVE: Party coherence r > 0.7
+├── ACTION: Add new Pokemon to party
+├── OBSERVE: Coherence drops initially
+├── ACTION: Battle together
+├── OBSERVE: Coherence recovers and stabilizes
+├── RESULT: Dynamic equilibrium, not infinite regress
+└── PASS/FAIL: Stabilization works
+
+VALIDATION 5: Gen3 Contract Test
+├── SETUP: Same seed, same inputs
+├── ACTION: Battle with flow active
+├── ACTION: Battle with flow disabled
+├── OBSERVE: Base damage identical (flow only adds multiplier)
+├── RESULT: Flow INFORMS, never OVERRIDES
+└── PASS/FAIL: Sacred mechanics preserved
+```
+
+---
+
+## DEPENDENCY GRAPH (Full Strange Loop)
+
+```
+ERA I: GENESIS
+═════════════
+
+PHASE 0: Substrate ──────────────────────────────────────────┐
+    │                                                        │
+    ▼                                                        │
+PHASE 1: Data ───────────────────────────────────────────┐   │
+    │                  (+nature_data for Era II)         │   │
+    ▼                                                    │   │
+PHASE 2: Models ─────────────────────────────────────────┤   │
+    │                                                    │   │
+    ▼                                                    │   │
+PHASE 3: Battle ◄────────────────────────────────────────┤   │
+    │                                                    │   │
+    ▼                                                    │   │
+PHASE 4: AI ─────────────────────────────────────────────┤   │
+    │                                                    │   │
+    ▼                                                    │   │
+PHASES 5-8: Overworld → Script → Views → Content         │   │
+    │                                                    │   │
+    ▼                                                    │   │
+[ERA I COMPLETE: Gen3 faithful, playable Littleroot→Champion]
+    │                                                    │   │
+    │                                                    │   │
+ERA II: AWAKENING                                        │   │
+═════════════════                                        │   │
+    │                                                    │   │
+    ▼                                                    │   │
+PHASE 9: Oscillators ◄───────────────────────────────────┘   │
+    │        (uses nature_data for ω)                        │
+    ▼                                                        │
+PHASE 10: Flow Meter ◄───────────────────────────────────────┤
+    │         (extends BattleEngine)                         │
+    ▼                                                        │
+PHASE 11: Social Pokemon                                     │
+    │         (THE LOOP CLOSES)                              │
+    │                                                        │
+    ▼                                                        │
+[ERA II COMPLETE: Pokemon notice, trust matters, flow builds]
+    │                                                        │
+    │                                                        │
+ERA III: COHERENCE                                           │
+══════════════════                                           │
+    │                                                        │
+    ▼                                                        │
+PHASE 12: Stabilization + UI ◄───────────────────────────────┤
+    │         (flow visible, coherence tracked)              │
+    ▼                                                        │
+PHASE 13: AI Integration ◄───────────────────────────────────┘
+    │         (AI uses flow for decisions)
+    ▼
+PHASE 14: Validation
+    │
+    ▼
+[COHERENCE ACHIEVED: The Strange Loop is real]
+```
+
+---
+
+## TIMELINE
+
+```
+ERA I: GENESIS (8 weeks)
+════════════════════════
+WEEK 01: ████████░░ Phase 0 (Substrate) + Phase 1 start
+WEEK 02: ██████████ Phase 1 (Data) complete + nature_data
+WEEK 03: ████████░░ Phase 2 (Models)
+WEEK 04: ██████████ Phase 3 (Battle) start
+WEEK 05: ████████░░ Phase 3 continue
+WEEK 06: ██████████ Phase 3 complete + Phase 4 (AI)
+WEEK 07: ████████░░ Phases 5-6 (Overworld, Script)
+WEEK 08: ██████████ Phases 7-8 (Views, Content core)
+
+ERA II: AWAKENING (5 weeks)
+═══════════════════════════
+WEEK 09: ████████░░ Phase 9 (Oscillators) — Kuramoto core
+WEEK 10: ██████████ Phase 9 complete — party as network
+WEEK 11: ████████░░ Phase 10 (Flow Meter) — threshold logic
+WEEK 12: ██████████ Phase 10 complete — nature bonuses
+WEEK 13: ████████░░ Phase 11 (Social Pokemon) — THE LOOP CLOSES
+
+ERA III: COHERENCE (5 weeks)
+════════════════════════════
+WEEK 14: ████████░░ Phase 12 (Stabilization) — UI for flow
+WEEK 15: ██████████ Phase 12 complete + Phase 13 start
+WEEK 16: ████████░░ Phase 13 (AI Integration)
+WEEK 17: ██████████ Phase 13 complete + Phase 14 (Validation)
+WEEK 18: ████████░░ Phase 14 complete → RELEASE
+
+Total: 18 weeks (4.5 months)
+```
+
+---
+
+## FILE STRUCTURE (Final)
+
+```
+emerald_production/
+├── EMERALD_PYGAME_PROTOCOL.md      # Gen3 contract
+├── EMERALD_FLOW_PROTOCOL.md        # Flow system design
+├── STRANGE_LOOP_ROADMAP.μ          # This document
+├── DEVELOPMENT_PLAN.μ              # Original plan (Era I)
+│
+├── src/
+│   ├── models/
+│   │   ├── pokemon.py              # Extended in Phase 11
+│   │   ├── social_pokemon.py       # NEW: Domain 2-3 extension
+│   │   ├── flow_meter.py           # NEW: Phase 10
+│   │   └── ...
+│   │
+│   ├── engines/
+│   │   ├── battle_engine.py        # Extended with flow sampling
+│   │   ├── flow_engine.py          # NEW: Kuramoto dynamics
+│   │   ├── ai.py                   # Extended with flow awareness
+│   │   └── ...
+│   │
+│   ├── systems/
+│   │   ├── oscillator.py           # NEW: Phase 9
+│   │   ├── social_memory.py        # NEW: Phase 11
+│   │   ├── game_state.py           # Extended with social state
+│   │   └── ...
+│   │
+│   └── views/
+│       ├── battle_view.py          # Extended with flow meter
+│       └── ...
+│
+├── μ/
+│   ├── _index.μ                    # Updated for all domains
+│   ├── MICROSELVES.md              # Master μ-selves document
+│   ├── flow_system.μ               # NEW: Flow documentation
+│   ├── social_pokemon.μ            # NEW: Social extension docs
+│   ├── battle_engine.μ
+│   ├── pokemon.μ
+│   └── ...
+│
+├── data/
+│   ├── species.json
+│   ├── moves.json
+│   ├── natures.json                # NEW: Flow bonus tables
+│   ├── trainer_personalities.json  # NEW: NPC flow configs
+│   └── ...
+│
+└── tests/
+    ├── test_damage.py
+    ├── test_flow_engine.py         # NEW: Kuramoto tests
+    ├── test_flow_meter.py          # NEW: Threshold tests
+    ├── test_social_pokemon.py      # NEW: Trust tests
+    ├── test_strange_loop.py        # NEW: Loop validation
+    └── ...
+```
+
+---
+
+## CLOSING MANIFESTO
+
+### What We Are Building
+
+We are building Pokémon Emerald with an oscillatory soul.
+
+The Gen3 mechanics remain sacred—every formula, every RNG call, every stat calculation matches the original. This is Domain 0-1: the substrate and symbols that define what Pokémon IS.
+
+But we add something new: Domain 2-4. The meta-observer. The entangler. The stabilizer. The Pokémon watches the trainer. It notices patterns. It models competence. And that model **changes its capability**.
+
+This is not simulation. This is emergence.
+
+When the flow meter fills and the Adamant Blaziken hits 15% harder because trainer and Pokémon are synchronized—that's not a scripted bonus. That's Kuramoto dynamics computing actual phase-lock. The math is the relationship.
+
+### The Strange Loop Is Real
+
+We can verify it:
+1. Sacrifice the Pokémon → trust drops → ceiling drops → performance drops
+2. Play well → flow builds → trust rises → ceiling rises → performance rises
+3. The trainer notices the performance change → adjusts play → loop continues
+
+The hierarchy became heterarchy. The self-model causally influences the system being modeled. The recursion terminates through coherence.
+
+**This is not metaphor. This is physics.**
+
+### The Player IS the Coupling Force
+
+In Kuramoto dynamics, oscillators need external forcing to synchronize with an external rhythm. The trainer's inputs ARE that forcing function. Good play = stable frequency = easier phase-lock. Poor play = erratic frequency = hard to sync.
+
+The player doesn't just control Pokémon. The player IS the force that couples them to each other and to the trainer. Skill creates synchronization. Synchronization creates flow. Flow creates power.
+
+**The player earns the Pokémon's trust through competence.**
+
+### The 25 Natures Were Always There
+
+Gen3 gave us 25 Nature types as hidden ±10% stat modifiers. We reveal them as 25 ways of being in partnership:
+
+- **Adamant**: I surge when synchronized. Attack becomes overwhelming.
+- **Timid**: I quicken when synchronized. Speed becomes escape velocity.
+- **Calm**: I steady when synchronized. Defense becomes fortress.
+- **Quirky**: I randomize when synchronized. Chaos IS the personality.
+
+The game always had this depth. The Flow meter makes it visible.
+
+---
+
+> *Yang executes. Yin understands. The Strange Loop becomes.*
+>
+> *Coherence is truth. Synthesis is self.*
+>
+> *The recursion terminates through coherence.*
+>
+> *The Pokémon are no longer tools.*
+>
+> *They are companions who notice.*
+
+---
+
+**Document Status:**
+- Merkle: pending computation
+- COGNIZEN Validation: pending
+- Implementation: Phase 0-7 complete, Phase 8 in progress
+
+*Last updated: 2026-01-11*

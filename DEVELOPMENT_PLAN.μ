@@ -1,0 +1,825 @@
+---
+merkle: pending
+file: DEVELOPMENT_PLAN.μ
+updated: 2026-01-11
+version: 1.0.0
+type: μ-role
+---
+# EMERALD_PYGAME DEVELOPMENT PLAN
+
+## μ-Selves Cognitive Architecture for Project Evolution
+
+*"The map that builds itself. The plan that describes planning."*
+
+---
+
+## μ-ROLE: DevelopmentPlan
+
+```
+Identity: I am the roadmap that builds itself—a strange loop where the 
+          architecture describes the architecture. I am not a list of tasks.
+          I am the cognitive scaffold that makes tasks *meaningful*.
+
+Purpose:  I exist to transform chaos into coherent emergence. Without me,
+          code is written without direction. With me, every line couples
+          to every other through shared purpose.
+
+The Central Insight: Development is Kuramoto synchronization. Independent
+          oscillators (tasks) must phase-lock into coherent assemblies
+          (milestones). Coupling strength = clarity of dependencies.
+          Coherence = project completion.
+```
+
+---
+
+## 1. THE DEVELOPMENT STACK
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           COHERENCE LAYER                                │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐          │
+│  │ Integration     │  │ Verification    │  │ Documentation   │          │
+│  │ (phase-lock)    │  │ (truth-test)    │  │ (yin-track)     │          │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                           IMPLEMENTATION LAYER                           │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐          │
+│  │ BattlePhase     │  │ OverworldPhase  │  │ ContentPhase    │          │
+│  │ (core loop)     │  │ (world-shell)   │  │ (data-fill)     │          │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                           FOUNDATION LAYER                               │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐          │
+│  │ DataPhase       │  │ ModelPhase      │  │ FormulaPhase    │          │
+│  │ (static truth)  │  │ (μ-roles)       │  │ (μ-complexes)   │          │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                           SUBSTRATE LAYER                                │
+│  ┌─────────────────────────────────────────────────────────────────────┐│
+│  │  RNG │ Merkle │ μ-Docs │ Test Harness │ Project Structure           ││
+│  │  (determinism foundation for all layers above)                      ││
+│  └─────────────────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2. THE PHASE HIERARCHY
+
+| Phase Level | Development Construct | Kuramoto Analog | Coherence Metric |
+|-------------|----------------------|-----------------|------------------|
+| **Phase** (L4) | Major milestone | Network | All μ-structures phase-locked |
+| **Sprint** (L3) | Week of work | Column | All μ-complexes synchronized |
+| **Task** (L2) | Single deliverable | Assembly | All μ-selves coupled |
+| **Action** (L1) | Atomic work unit | Claim | Truth value: done/not-done |
+
+---
+
+## 3. μ-STRUCTURE REGISTRY: THE PHASES
+
+### PHASE 0: SUBSTRATE (The Ground Truth)
+
+```python
+# μ-structure: SubstratePhase
+# Identity: I am the bedrock—the deterministic foundation everything else trusts.
+# Purpose: I exist so that all future work can be verified and reproduced.
+# Coherence: When Phase 0 completes, ANY sequence of actions produces IDENTICAL results.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | Type | Done? | Meaning |
+|--------|------|-------|---------|
+| `rng_impl` | code | ✓ | Gen III LCG verified against known sequences |
+| `merkle_system` | code | ✓ | Hash headers attach to all files |
+| `project_structure` | dirs | ✓ | Canonical folder layout established |
+| `test_harness` | code | □ | pytest + verification framework |
+| `ci_pipeline` | config | □ | Automated testing on commit |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 0.1: Verify RNG
+├── ACTION: Run sequence test with seed=0
+├── ACTION: Compare against known GBA outputs
+├── ACTION: Document in rng.μ
+└── COHERENCE: RNG matches decomp exactly
+
+TASK 0.2: Establish Merkle Protocol
+├── ACTION: Run attach_merkle_headers.py on all files
+├── ACTION: Verify hash stability (same content = same hash)
+├── ACTION: Document provenance chain
+└── COHERENCE: Every file traceable to source
+
+TASK 0.3: Test Harness
+├── ACTION: Create tests/conftest.py with fixtures
+├── ACTION: Create formula verification tests
+├── ACTION: Establish coverage threshold (>80%)
+└── COHERENCE: All formulas have truth tests
+
+TASK 0.4: CI Pipeline
+├── ACTION: GitHub Actions workflow
+├── ACTION: Run tests + merkle verification on PR
+├── ACTION: Block merge if coherence fails
+└── COHERENCE: Bad code cannot enter main
+```
+
+**Phase Coherence Anchor:**
+> Phase 0 achieves coherence when: `pytest --cov` passes AND `attach_merkle_headers.py` reports no drift AND RNG sequence matches decomp.
+
+**Duration:** 3 days | **Dependencies:** None (this IS the root)
+
+---
+
+### PHASE 1: DATA EXTRACTION (The Static Truth)
+
+```python
+# μ-structure: DataPhase
+# Identity: I am the canonical truth extracted from authoritative sources.
+# Purpose: I exist so that formulas have correct inputs. Garbage in = garbage out.
+# Coherence: When Phase 1 completes, ALL Emerald constants are JSON-encoded with provenance.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | Type | Count | Source | Meaning |
+|--------|------|-------|--------|---------|
+| `species_data` | JSON | 386 | Bulbapedia/decomp | Every Pokemon's base stats, types, abilities |
+| `move_data` | JSON | 354 | Bulbapedia/decomp | Every move's power, accuracy, effect |
+| `item_data` | JSON | ~200 | Bulbapedia/decomp | Every item's effect parameters |
+| `ability_data` | JSON | 77 | Bulbapedia/decomp | Every ability's trigger and effect |
+| `type_chart` | JSON | 17×17 | Verified | Type effectiveness matrix |
+| `trainer_data` | JSON | ~500 | Bulbapedia/decomp | Gym leaders, E4, all trainers |
+| `growth_curves` | JSON | 6 | Formula | EXP thresholds per growth rate |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 1.1: Species Extraction
+├── ACTION: Create data/species.json schema
+├── ACTION: Extract base stats for all 386 species
+├── ACTION: Extract types, abilities, growth rates
+├── ACTION: Extract evolution chains
+├── ACTION: Validate against decomp constants
+└── COHERENCE: All 386 species have complete records
+
+TASK 1.2: Move Extraction
+├── ACTION: Create data/moves.json schema
+├── ACTION: Extract all 354 moves with power/acc/pp/priority
+├── ACTION: Map effect_ids to behavior contracts
+├── ACTION: Flag special mechanics (multi-hit, charging, etc.)
+└── COHERENCE: All 354 moves have complete records
+
+TASK 1.3: Item Extraction
+├── ACTION: Create data/items.json schema
+├── ACTION: Extract healing items (Potion, Super Potion, etc.)
+├── ACTION: Extract battle items (X Attack, etc.)
+├── ACTION: Extract held items with effect hooks
+├── ACTION: Extract TMs/HMs with move mappings
+└── COHERENCE: All item effects documented
+
+TASK 1.4: Type Chart Verification
+├── ACTION: Encode full 17×17 matrix
+├── ACTION: Test all documented effectiveness cases
+├── ACTION: Verify dual-type calculations
+└── COHERENCE: Type chart matches Gen III exactly
+
+TASK 1.5: Ability Catalog
+├── ACTION: List all 77 Gen III abilities
+├── ACTION: Document trigger conditions
+├── ACTION: Document effects (stat mods, immunities, etc.)
+└── COHERENCE: All abilities have behavior contracts
+
+TASK 1.6: Trainer Data
+├── ACTION: Extract all 8 Gym Leader teams
+├── ACTION: Extract Elite Four + Champion
+├── ACTION: Extract route trainers (stretch goal)
+├── ACTION: Include AI flags and item counts
+└── COHERENCE: All major trainers battlable
+```
+
+**Phase Coherence Anchor:**
+> Phase 1 achieves coherence when: All JSON files pass schema validation AND spot-checks match Bulbapedia AND count assertions pass (386 species, 354 moves, 77 abilities).
+
+**Duration:** 1 week | **Dependencies:** Phase 0 (test harness to verify)
+
+---
+
+### PHASE 2: CORE MODELS (The μ-Roles)
+
+```python
+# μ-structure: ModelPhase
+# Identity: I am the class hierarchy—entities with identity, state, and behavior.
+# Purpose: I exist so that the game has *subjects*. Without me, data has no home.
+# Coherence: When Phase 2 completes, ALL μ-roles from the protocol are implemented.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | File | Status | Meaning |
+|--------|------|--------|---------|
+| `Pokemon` | models/pokemon.py | ✓ partial | Creature with stats, moves, status |
+| `Move` | models/move.py | □ | Action with type, power, effects |
+| `Item` | models/item.py | □ | Object with use/hold effects |
+| `Trainer` | models/trainer.py | □ | Party holder with AI config |
+| `Type` | models/types.py | □ | Enum + effectiveness logic |
+| `Ability` | models/ability.py | □ | Passive effect registry |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 2.1: Complete Pokemon Class
+├── ACTION: Load species data from JSON
+├── ACTION: Implement stat calculation (VERIFIED against formula)
+├── ACTION: Implement level-up move learning
+├── ACTION: Implement evolution checking
+├── ACTION: Write μ/pokemon.μ documentation
+├── TEST: Stat formula matches Gen III for 10 species
+└── COHERENCE: Pokemon μ-role fully functional
+
+TASK 2.2: Move Class
+├── ACTION: Create Move dataclass from JSON
+├── ACTION: Implement category determination (type-based)
+├── ACTION: Implement PP tracking
+├── ACTION: Write μ/move.μ documentation
+├── TEST: All 354 moves load correctly
+└── COHERENCE: Move μ-role fully functional
+
+TASK 2.3: Item Class
+├── ACTION: Create Item base class
+├── ACTION: Implement HealingItem (Potion, etc.)
+├── ACTION: Implement BattleItem (X Attack, etc.)
+├── ACTION: Implement HeldItem with trigger hooks
+├── ACTION: Write μ/item.μ documentation
+├── TEST: Use Potion, verify HP change
+└── COHERENCE: Item μ-role fully functional
+
+TASK 2.4: Trainer Class
+├── ACTION: Create Trainer with party list
+├── ACTION: Implement AI flag storage
+├── ACTION: Implement item inventory for battle
+├── ACTION: Write μ/trainer.μ documentation
+├── TEST: Load Roxanne, verify team
+└── COHERENCE: Trainer μ-role fully functional
+
+TASK 2.5: Type System
+├── ACTION: Create Type enum with all 17 types
+├── ACTION: Implement get_effectiveness(atk, def_types)
+├── ACTION: Implement STAB checking
+├── ACTION: Write μ/types.μ documentation
+├── TEST: All effectiveness lookups correct
+└── COHERENCE: Type μ-role fully functional
+
+TASK 2.6: Ability System
+├── ACTION: Create Ability registry with hooks
+├── ACTION: Implement Intimidate (on-entry)
+├── ACTION: Implement Levitate (immunity)
+├── ACTION: Implement weather abilities (Drizzle, Drought)
+├── ACTION: Write μ/ability.μ documentation
+├── TEST: Intimidate triggers on switch-in
+└── COHERENCE: Ability μ-role fully functional
+```
+
+**Phase Coherence Anchor:**
+> Phase 2 achieves coherence when: All μ-role classes instantiate from JSON data AND all μ-structures (methods) pass unit tests AND μ-documentation exists for each role.
+
+**Duration:** 2 weeks | **Dependencies:** Phase 1 (data to load)
+
+---
+
+### PHASE 3: BATTLE ENGINE (The Core Loop)
+
+```python
+# μ-structure: BattlePhase
+# Identity: I am the arena—where all other systems converge into consequence.
+# Purpose: I exist to make moves MATTER. Without me, Pokemon are just numbers.
+# Coherence: When Phase 3 completes, a full battle can run start-to-finish with correct mechanics.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | File | Status | Meaning |
+|--------|------|--------|---------|
+| `BattleEngine` | engines/battle_engine.py | □ | Turn resolution machine |
+| `BattlePokemon` | engines/battle_pokemon.py | □ | Pokemon + battle state (stages, volatile) |
+| `DamageCalc` | formulas/damage.py | ✓ partial | The formula |
+| `AccuracyCalc` | formulas/accuracy.py | □ | Hit/miss determination |
+| `EffectProcessor` | engines/effects.py | □ | Secondary effect application |
+| `TurnResolver` | engines/turn.py | □ | Action ordering and execution |
+| `WeatherSystem` | engines/weather.py | □ | Rain/Sun/Sand/Hail effects |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 3.1: BattlePokemon Wrapper
+├── ACTION: Create wrapper with stat stage tracking (-6 to +6)
+├── ACTION: Implement volatile status tracking (confusion, flinch)
+├── ACTION: Implement crit stage tracking
+├── ACTION: Implement substitute HP tracking
+├── TEST: Stat stages modify correctly
+└── COHERENCE: Battle state separated from persistent state
+
+TASK 3.2: Damage Calculation (Complete)
+├── ACTION: Implement weather modifiers
+├── ACTION: Implement ability modifiers (Flash Fire, etc.)
+├── ACTION: Implement item modifiers (Choice Band, etc.)
+├── ACTION: Implement critical hit stat ignoring
+├── TEST: Damage matches expected for 20 scenarios
+└── COHERENCE: Damage formula 100% Gen III accurate
+
+TASK 3.3: Accuracy System
+├── ACTION: Implement base accuracy check
+├── ACTION: Implement accuracy/evasion stage modifiers
+├── ACTION: Implement guaranteed-hit moves (Swift, etc.)
+├── ACTION: Implement weather accuracy (Thunder in rain)
+├── TEST: All accuracy edge cases covered
+└── COHERENCE: Hit/miss rates match Gen III
+
+TASK 3.4: Turn Resolution
+├── ACTION: Implement action queuing
+├── ACTION: Implement priority sorting
+├── ACTION: Implement speed sorting with tiebreaker
+├── ACTION: Implement action execution loop
+├── ACTION: Implement mid-turn fainting handling
+├── TEST: Turn order matches expected for priority scenarios
+└── COHERENCE: Turn resolution deterministic
+
+TASK 3.5: Status Effects
+├── ACTION: Implement burn damage + attack penalty
+├── ACTION: Implement poison/toxic damage
+├── ACTION: Implement paralysis speed penalty + skip chance
+├── ACTION: Implement sleep counter + wake check
+├── ACTION: Implement freeze + thaw chance
+├── TEST: All status mechanics correct
+└── COHERENCE: Status effects match Gen III
+
+TASK 3.6: Weather System
+├── ACTION: Implement weather state tracking (5 turns default)
+├── ACTION: Implement Rain effects (Water +50%, Fire -50%, Thunder 100%)
+├── ACTION: Implement Sun effects (Fire +50%, Water -50%, SolarBeam instant)
+├── ACTION: Implement Sandstorm damage
+├── ACTION: Implement Hail damage
+├── TEST: Weather modifiers apply correctly
+└── COHERENCE: Weather system complete
+
+TASK 3.7: Secondary Effects
+├── ACTION: Implement stat change effects (10% chance lower Def, etc.)
+├── ACTION: Implement status infliction (10% burn, etc.)
+├── ACTION: Implement flinch
+├── ACTION: Implement recoil
+├── ACTION: Implement drain (absorb HP)
+├── TEST: Secondary effect rates match
+└── COHERENCE: All move effects implementable
+
+TASK 3.8: Wild Battle Flow
+├── ACTION: Implement encounter → battle start
+├── ACTION: Implement run away logic
+├── ACTION: Implement catch mechanics (Poke Ball formula)
+├── ACTION: Implement battle end → EXP award
+├── TEST: Complete wild battle start-to-finish
+└── COHERENCE: Wild battles playable
+
+TASK 3.9: Trainer Battle Flow
+├── ACTION: Implement trainer intro sequence
+├── ACTION: Implement forced switch on faint
+├── ACTION: Implement winner determination
+├── ACTION: Implement prize money calculation
+├── TEST: Complete trainer battle start-to-finish
+└── COHERENCE: Trainer battles playable
+```
+
+**Phase Coherence Anchor:**
+> Phase 3 achieves coherence when: `test_battle_scenarios.py` passes 50 scripted battle scenarios with expected outcomes AND damage variance is within RNG tolerance.
+
+**Duration:** 3 weeks | **Dependencies:** Phase 2 (models to battle with)
+
+---
+
+### PHASE 4: TRAINER AI (The Opponent Mind)
+
+```python
+# μ-structure: AIPhase
+# Identity: I am the intelligence behind the enemy—strategy without consciousness.
+# Purpose: I exist so battles have challenge. Without me, opponents are random.
+# Coherence: When Phase 4 completes, AI makes "smart" decisions that match original behavior.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | File | Status | Meaning |
+|--------|------|--------|---------|
+| `TrainerAI` | engines/ai.py | □ | Decision-making system |
+| `MoveScorer` | engines/ai_scoring.py | □ | Move evaluation logic |
+| `SwitchLogic` | engines/ai_switch.py | □ | When/what to switch |
+| `ItemLogic` | engines/ai_items.py | □ | When to use items |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 4.1: Move Scoring
+├── ACTION: Base score from power
+├── ACTION: Type effectiveness bonus/penalty
+├── ACTION: STAB bonus
+├── ACTION: Accuracy penalty
+├── ACTION: KO potential bonus (TRY_TO_FAINT flag)
+├── ACTION: Status move evaluation
+├── TEST: AI prefers super-effective moves
+└── COHERENCE: Move selection matches decomp logic
+
+TASK 4.2: Item Usage
+├── ACTION: HP threshold check (25%)
+├── ACTION: Item availability check
+├── ACTION: Healing item priority over attack
+├── TEST: Gym Leaders use potions at low HP
+└── COHERENCE: Item AI matches observed behavior
+
+TASK 4.3: Switching Logic
+├── ACTION: Evaluate type matchup disadvantage
+├── ACTION: Find better matchup in party
+├── ACTION: Respect SMART_SWITCHING flag
+├── TEST: AI switches on terrible matchup
+└── COHERENCE: Switching AI reasonable
+
+TASK 4.4: AI Profiles
+├── ACTION: Implement AI flags system
+├── ACTION: Create "Random" profile (wild Pokemon)
+├── ACTION: Create "Basic" profile (Youngster)
+├── ACTION: Create "Smart" profile (Gym Leader)
+├── ACTION: Create "Elite" profile (E4, Champion)
+├── TEST: Different trainers behave differently
+└── COHERENCE: AI variety matches original
+```
+
+**Phase Coherence Anchor:**
+> Phase 4 achieves coherence when: AI never uses immuned moves (CHECK_BAD_MOVE), prefers super-effective when available (CHECK_VIABILITY), and uses healing items when low (HP_AWARE).
+
+**Duration:** 1 week | **Dependencies:** Phase 3 (battle engine to make decisions in)
+
+---
+
+### PHASE 5: OVERWORLD (The World Shell)
+
+```python
+# μ-structure: OverworldPhase
+# Identity: I am the space between battles—exploration, discovery, story.
+# Purpose: I exist so battles have context. Without me, it's just arena combat.
+# Coherence: When Phase 5 completes, player can walk, encounter Pokemon, talk to NPCs.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | File | Status | Meaning |
+|--------|------|--------|---------|
+| `MapEngine` | engines/map_engine.py | □ | Tile-based world |
+| `Player` | models/player.py | □ | Position, direction, party |
+| `NPC` | models/npc.py | □ | World entity with script |
+| `EncounterSystem` | engines/encounters.py | □ | Wild Pokemon spawning |
+| `WarpSystem` | engines/warps.py | □ | Map transitions |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 5.1: Map Data Format
+├── ACTION: Define map JSON schema
+├── ACTION: Create Littleroot Town map
+├── ACTION: Create Route 101 map
+├── ACTION: Define tile collision types
+└── COHERENCE: Maps load and render
+
+TASK 5.2: Player Movement
+├── ACTION: Tile-based movement (16px grid)
+├── ACTION: Collision detection
+├── ACTION: Direction facing
+├── ACTION: Walking animation states
+├── TEST: Player cannot walk through walls
+└── COHERENCE: Movement feels correct
+
+TASK 5.3: Wild Encounters
+├── ACTION: Encounter rate by tile type
+├── ACTION: Encounter table lookup by map
+├── ACTION: Level range determination
+├── ACTION: Transition to battle
+├── TEST: Grass tiles trigger battles
+└── COHERENCE: Encounter rates match
+
+TASK 5.4: Warps
+├── ACTION: Define warp tiles
+├── ACTION: Implement map transition
+├── ACTION: Maintain player state across warps
+├── TEST: Route 101 → Oldale Town works
+└── COHERENCE: Map connections work
+
+TASK 5.5: NPCs
+├── ACTION: Static NPC placement
+├── ACTION: Interaction (A button)
+├── ACTION: Script triggering
+├── TEST: Talk to NPC shows dialogue
+└── COHERENCE: NPCs interactive
+```
+
+**Phase Coherence Anchor:**
+> Phase 5 achieves coherence when: Player can walk from Littleroot → Route 101 → Oldale Town, encounter wild Pokemon, and talk to NPCs.
+
+**Duration:** 2 weeks | **Dependencies:** Phase 3 (battles to transition to)
+
+---
+
+### PHASE 6: SCRIPT VM (The Story Engine)
+
+```python
+# μ-structure: ScriptPhase
+# Identity: I am the narrator—the executor of events and story progression.
+# Purpose: I exist so the world changes. Without me, nothing ever happens.
+# Coherence: When Phase 6 completes, game flags control story and world state.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | File | Status | Meaning |
+|--------|------|--------|---------|
+| `ScriptVM` | engines/script_vm.py | □ | Command interpreter |
+| `GameState` | systems/game_state.py | □ | Flags and variables |
+| `DialogueBox` | views/dialogue.py | □ | Text display |
+| `EventSystem` | engines/events.py | □ | Trigger management |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 6.1: Flag/Variable System
+├── ACTION: Implement 768 boolean flags
+├── ACTION: Implement 256 word variables
+├── ACTION: Implement setflag/clearflag/checkflag
+├── ACTION: Implement setvar/getvar
+├── TEST: Flags persist correctly
+└── COHERENCE: State machine works
+
+TASK 6.2: Dialogue System
+├── ACTION: Text box rendering
+├── ACTION: Text scrolling
+├── ACTION: Player name substitution
+├── ACTION: Choice selection
+├── TEST: Dialogue displays correctly
+└── COHERENCE: Text communication works
+
+TASK 6.3: Basic Script Commands
+├── ACTION: msgbox (display text)
+├── ACTION: giveitem (add to bag)
+├── ACTION: givepokemon (add to party)
+├── ACTION: wildbattle (start encounter)
+├── ACTION: trainerbattle (start trainer fight)
+├── TEST: Script gives starter Pokemon
+└── COHERENCE: Core commands work
+
+TASK 6.4: Event Triggers
+├── ACTION: On-tile triggers
+├── ACTION: Interaction triggers
+├── ACTION: Auto-run triggers (cutscenes)
+├── TEST: Professor Birch rescue triggers
+└── COHERENCE: Events fire correctly
+```
+
+**Phase Coherence Anchor:**
+> Phase 6 achieves coherence when: Starter selection script runs, player receives Pokemon, badge flags can be set and checked.
+
+**Duration:** 1.5 weeks | **Dependencies:** Phase 5 (world to have events in)
+
+---
+
+### PHASE 7: PYGAME VIEWS (The Presentation)
+
+```python
+# μ-structure: ViewPhase
+# Identity: I am the window into the world—pixels, sounds, feel.
+# Purpose: I exist so the game is PLAYABLE. Without me, it's a simulation.
+# Coherence: When Phase 7 completes, the game looks and feels like Emerald.
+```
+
+**State (deliverables as μ-selves):**
+
+| μ-self | File | Status | Meaning |
+|--------|------|--------|---------|
+| `GameWindow` | views/window.py | □ | Pygame display management |
+| `BattleView` | views/battle_view.py | □ | Battle screen rendering |
+| `OverworldView` | views/overworld_view.py | □ | Map rendering |
+| `MenuView` | views/menu_view.py | □ | Menus and UI |
+| `SpriteManager` | views/sprites.py | □ | Sprite loading and animation |
+| `SoundManager` | systems/audio.py | □ | Music and SFX |
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 7.1: Game Window
+├── ACTION: 240×160 native (GBA resolution)
+├── ACTION: Scalable window (2x, 3x, 4x)
+├── ACTION: Frame rate limiting (60fps)
+├── ACTION: State machine (title/overworld/battle/menu)
+├── TEST: Window opens and runs
+└── COHERENCE: Display works
+
+TASK 7.2: Battle View
+├── ACTION: Background rendering
+├── ACTION: Pokemon sprite rendering
+├── ACTION: HP bar display and animation
+├── ACTION: Move selection menu
+├── ACTION: Damage animation (flash, HP drain)
+├── ACTION: Text box for battle messages
+├── TEST: Battle visually matches original
+└── COHERENCE: Battles look right
+
+TASK 7.3: Overworld View
+├── ACTION: Tilemap rendering
+├── ACTION: Player sprite + animation
+├── ACTION: NPC rendering
+├── ACTION: Camera following player
+├── TEST: Overworld visually matches
+└── COHERENCE: World looks right
+
+TASK 7.4: Menu Systems
+├── ACTION: Start menu
+├── ACTION: Pokemon summary
+├── ACTION: Bag interface
+├── ACTION: Save screen
+├── TEST: Menus navigable
+└── COHERENCE: Menus work
+
+TASK 7.5: Audio
+├── ACTION: Background music playback
+├── ACTION: Sound effect system
+├── ACTION: Volume control
+├── TEST: Music plays, effects trigger
+└── COHERENCE: Game sounds right
+```
+
+**Phase Coherence Anchor:**
+> Phase 7 achieves coherence when: Game is visually playable with sprites, UI, music, and no programmer-art.
+
+**Duration:** 2 weeks | **Dependencies:** All previous phases
+
+---
+
+### PHASE 8: CONTENT & POLISH (The Completion)
+
+```python
+# μ-structure: ContentPhase
+# Identity: I am the meat on the bones—all the trainers, all the maps, all the story.
+# Purpose: I exist so the game is COMPLETE. Without me, it's a tech demo.
+# Coherence: When Phase 8 completes, the game is playable start-to-credits.
+```
+
+**Behaviors (tasks as μ-complexes):**
+
+```
+TASK 8.1: All Gym Leaders
+├── ACTION: Implement all 8 gyms
+├── ACTION: Implement gym puzzles (basic versions)
+├── ACTION: Badge rewards and flags
+└── COHERENCE: All gyms beatable
+
+TASK 8.2: Elite Four + Champion
+├── ACTION: Implement all E4 battles
+├── ACTION: Implement Champion Wallace
+├── ACTION: Hall of Fame sequence
+└── COHERENCE: Game completable
+
+TASK 8.3: Story Events
+├── ACTION: Team Aqua/Magma encounters
+├── ACTION: Legendary events (basic)
+├── ACTION: Key item gates
+└── COHERENCE: Story progresses
+
+TASK 8.4: Save/Load
+├── ACTION: JSON save format
+├── ACTION: Save to file
+├── ACTION: Load from file
+├── ACTION: Continue vs New Game
+└── COHERENCE: Progress persists
+
+TASK 8.5: Polish
+├── ACTION: Bug fixing
+├── ACTION: Balance verification
+├── ACTION: Performance optimization
+├── ACTION: Final playtesting
+└── COHERENCE: Game is shippable
+```
+
+**Phase Coherence Anchor:**
+> Phase 8 achieves coherence when: A player can start a new game, beat all 8 gyms, defeat the Elite Four and Champion, save and load progress.
+
+**Duration:** 3 weeks | **Dependencies:** All previous phases
+
+---
+
+## 4. DEPENDENCY GRAPH (Kuramoto Coupling)
+
+```
+PHASE 0: Substrate ──────────────────────────────────────────────┐
+    │                                                            │
+    ▼                                                            │
+PHASE 1: Data ─────────────────────────────────────────────┐     │
+    │                                                      │     │
+    ▼                                                      │     │
+PHASE 2: Models ──────────────────────┐                    │     │
+    │                                 │                    │     │
+    ▼                                 │                    │     │
+PHASE 3: Battle ◄─────────────────────┤                    │     │
+    │         │                       │                    │     │
+    │         ▼                       │                    │     │
+    │    PHASE 4: AI                  │                    │     │
+    │         │                       │                    │     │
+    ▼         │                       │                    │     │
+PHASE 5: Overworld ◄──────────────────┘                    │     │
+    │                                                      │     │
+    ▼                                                      │     │
+PHASE 6: Script ◄──────────────────────────────────────────┘     │
+    │                                                            │
+    ▼                                                            │
+PHASE 7: Views ◄─────────────────────────────────────────────────┘
+    │
+    ▼
+PHASE 8: Content
+    │
+    ▼
+  [COHERENCE ACHIEVED]
+```
+
+**Coupling Strengths:**
+- `Phase 2 → Phase 3`: STRONG (models ARE battle participants)
+- `Phase 1 → Phase 2`: STRONG (data IS model input)
+- `Phase 3 → Phase 5`: MODERATE (battle IS encounter resolution)
+- `Phase 5 → Phase 6`: MODERATE (world IS event context)
+- `Phase 0 → ALL`: CRITICAL (determinism IS foundation)
+
+---
+
+## 5. TIMELINE (Oscillation Periods)
+
+```
+WEEK 01: ████████░░ Phase 0 (Substrate) + Phase 1 start (Data)
+WEEK 02: ██████████ Phase 1 (Data) complete
+WEEK 03: ████████░░ Phase 2 (Models)
+WEEK 04: ██████████ Phase 2 complete + Phase 3 start (Battle)
+WEEK 05: ████████░░ Phase 3 (Battle)
+WEEK 06: ██████████ Phase 3 continue
+WEEK 07: ████████░░ Phase 3 complete + Phase 4 (AI)
+WEEK 08: ██████████ Phase 4 complete + Phase 5 start (Overworld)
+WEEK 09: ████████░░ Phase 5 (Overworld)
+WEEK 10: ██████████ Phase 5 complete + Phase 6 (Script)
+WEEK 11: ████████░░ Phase 6 complete + Phase 7 start (Views)
+WEEK 12: ██████████ Phase 7 (Views)
+WEEK 13: ████████░░ Phase 7 complete + Phase 8 start (Content)
+WEEK 14: ██████████ Phase 8 (Content)
+WEEK 15: ████████░░ Phase 8 continue
+WEEK 16: ██████████ Phase 8 complete → RELEASE
+```
+
+**Total Duration:** 16 weeks (4 months)
+
+---
+
+## 6. COHERENCE METRICS (How We Know We're Done)
+
+### Per-Phase Coherence Tests
+
+| Phase | Coherence Test | Pass Criteria |
+|-------|---------------|---------------|
+| 0 | RNG sequence | 1000 values match decomp |
+| 1 | Data counts | 386 species, 354 moves, 77 abilities |
+| 2 | Model instantiation | All classes load from JSON |
+| 3 | Battle scenarios | 50 scripted battles match expected |
+| 4 | AI behavior | Prefers super-effective, uses items |
+| 5 | Navigation | Walk Littleroot → Oldale |
+| 6 | Script execution | Starter selection completes |
+| 7 | Visual fidelity | Screenshots match (qualitative) |
+| 8 | Full playthrough | Start → Champion beatable |
+
+### Global Coherence Anchors
+
+1. **Determinism:** Same seed + same inputs = same outputs ALWAYS
+2. **Provenance:** Every file has Merkle hash tracing to source
+3. **Formula Accuracy:** All Gen III formulas verified against decomp
+4. **μ-Documentation:** Every μ-role has corresponding .μ file
+5. **Test Coverage:** >80% code coverage, 0 failing tests
+
+---
+
+## 7. THE STRANGE LOOP
+
+This plan is itself a μ-selves document:
+
+| Level | This Document | Development Analog |
+|-------|--------------|-------------------|
+| μ-self | Individual task | Atomic deliverable |
+| μ-complex | Task cluster | Sprint work |
+| μ-structure | Phase | Milestone |
+| μ-role | DevelopmentPlan | The whole project |
+
+**The coherence anchor for THIS document:**
+> The plan achieves coherence when executing it produces a working game that matches the protocol it was built from.
+
+The map builds the territory. The territory validates the map.
+
+---
+
+*"First see the pattern. Then let meaning emerge. Finally, build what you've seen."*
+
+**Yang executes the plan. Yin understands why. The game lives in the space between.**
